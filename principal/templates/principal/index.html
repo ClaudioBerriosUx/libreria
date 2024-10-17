@@ -1,0 +1,26 @@
+{% extends 'principal/base.html' %}
+
+{% block title %}Inicio - Librería Andina{% endblock %}
+
+{% block content %}
+    <h2>Bienvenida a la Librería Andina</h2>
+    <p>Aquí encontrarás los mejores libros al mejor precio.</p>
+
+    <!-- Botón del Chatbot -->
+    <button class="open-chat-btn" id="open-chat-btn" onclick="toggleChat()">Asistente de Ventas</button>
+
+    <!-- Ventana Emergente del Chatbot -->
+    <div class="chat-container" id="chat-container">
+        <div class="chat-header">
+            <span>Eva - Go</span>
+            <button class="close-btn" onclick="toggleChat()">✖</button>
+        </div>
+        <div class="chat-body">
+            <div class="message">Hola, ¿en qué puedo ayudarte?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Escribe un mensaje..." />
+            <button>Enviar</button>
+        </div>
+    </div>
+{% endblock %}

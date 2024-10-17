@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente de Ventas</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Estilos del contenedor del chat */
+.chat-container {
+    width: 300px;
+    height: 400px;
+    position: fixed;
+    bottom: 20px;
+    right: -320px; /* Fuera de la vista inicialmente */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: right 0.4s ease;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header del chat */
+.chat-header {
+    background-color: #3b5998;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Cuerpo del chat */
+.chat-body {
+    flex: 1;
+    padding: 10px;
+    background-color: #f0f8ff;
+    overflow-y: auto;
+}
+
+.message {
+    background-color: #d1ecf1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    max-width: 80%;
+}
+
+/* Footer del chat */
+.chat-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.chat-footer button {
+    background-color: #3b5998;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Botón para abrir el chat */
+.open-chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4267B2;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.open-chat-btn:hover {
+    background-color: #365899;
+}
+
+/* Botón de cerrar */
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Bienvenida Librería</h1>
+
+    <!-- Contenedor del Chat -->
+    <div class="chat-container" id="chat-container">
+        <div class="chat-header">
+            <span>Eva - Go</span>
+            <button class="close-btn" onclick="toggleChat()">✖</button>
+        </div>
+        <div class="chat-body">
+            <div class="message">Hola, ¿en qué puedo ayudarte?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Escribe un mensaje..." />
+            <button>Enviar</button>
+        </div>
+    </div>
+
+    <!-- Botón para abrir el chat -->
+    <button class="open-chat-btn" id="open-chat-btn" onclick="toggleChat()">Asistente de Ventas</button>
+
+    <script src="script.js"></script>
+    <script>
+        // Función para mostrar/ocultar el chat
+function toggleChat() {
+    const chatContainer = document.getElementById('chat-container');
+    const openChatBtn = document.getElementById('open-chat-btn');
+
+    if (chatContainer.style.right === '20px') {
+        chatContainer.style.right = '-320px'; // Ocultar chat
+        openChatBtn.style.display = 'block';  // Mostrar botón de abrir
+    } else {
+        chatContainer.style.right = '20px';   // Mostrar chat
+        openChatBtn.style.display = 'none';   // Ocultar botón de abrir
+    }
+}
+
+    </script>
+</body>
+</html>
